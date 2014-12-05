@@ -1,6 +1,6 @@
 # Spawno
 
-TODO: Write a gem description
+Spawno starts parallel processes upon rails initialization. Just configure which processes you want to spawn using YAML file.
 
 ## Installation
 

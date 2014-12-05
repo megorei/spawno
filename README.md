@@ -20,6 +20,7 @@ config/spawno.yml
 
         processes:
           -
+            environment: production
             command: clockwork clock.rb
             options:
               :out:
@@ -27,7 +28,10 @@ config/spawno.yml
                 - w+
               :err: :out
           -
+            environment: test
             command: another_process
+          -
+            command: third
 env, command and options should be the same as for [spawn](http://www.ruby-doc.org/core-2.1.5/Kernel.html#method-i-spawn) method.
 Spawno sets RAILS_ENV to the rails environment it was started from.
 

@@ -1,5 +1,6 @@
 processes:
   -
+    environment: production
     command: clockwork clock.rb
     options:
       :out:
@@ -7,4 +8,7 @@ processes:
         - w+
       :err: :out
   -
+    environment: test
     command: another_process
+  -
+    command: third

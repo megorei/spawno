@@ -14,7 +14,7 @@ And then execute:
 
 ## Usage
 
-Create configuration file in your config directory:
+Create configuration file in your config directory. For example:
 
 config/spawno.yml
 
@@ -30,6 +30,8 @@ config/spawno.yml
           -
             environment: test
             command: another_process
+            env:
+              RACK_ENV: test
           -
             command: third
 env, command and options should be the same as for [spawn](http://www.ruby-doc.org/core-2.1.5/Kernel.html#method-i-spawn) method.

@@ -1,0 +1,10 @@
+processes:
+  -
+    command: clockwork clock.rb
+    options:
+      :out:
+        - log/clockwork.log
+        - w+
+      :err: :out
+  -
+    command: another_process

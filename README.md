@@ -12,6 +12,16 @@ And then execute:
 
     $ bundle
 
+Add this line on top of your config.ru file:
+
+```ruby
+ENV['SERVER_MODE'] = '1'
+```
+
+or set `SERVER_MODE` enviroment variable another way. For example:
+
+    SERVER_MODE=1 rails server
+
 ## Usage
 
 Create configuration file in your config directory. For example:

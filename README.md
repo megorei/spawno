@@ -28,24 +28,41 @@ Create configuration file in your config directory. For example:
 
 config/spawno.yml
 
-        processes:
-          -
-            environment: production
-            command: clockwork clock.rb
-            options:
-              :out:
-                - log/clockwork.log
-                - w+
-              :err: :out
-          -
-            environment: test
-            command: another_process
-            env:
-              RACK_ENV: test
-          -
-            command: third
+    processes:
+      -
+        environment: production
+        command: clockwork clock.rb
+        options:
+          :out:
+            - log/clockwork.log
+            - w+
+          :err: :out
+      -
+        environment: test
+        command: another_process
+        env:
+          RACK_ENV: test
+      -
+        command: third
 env, command and options should be the same as for [spawn](http://www.ruby-doc.org/core-2.1.5/Kernel.html#method-i-spawn) method.
 Spawno sets RAILS_ENV to the rails environment it was started from.
+
+
+## Caveats
+
+If your application runs in [passenger](https://www.phusionpassenger.com/) or similar dispatcher started processes won't be stopped properly upon shutdown as passenger does not terminate parent process.
+In this case you can stop processes by stopping them manually like:
+
+config/spawno.yml
+
+    processes:
+      - environment: production
+        command: pkill -f clockwork
+
+      -
+        environment: production
+        command: clockwork clock.rb
+
 
 ## Contributing
 

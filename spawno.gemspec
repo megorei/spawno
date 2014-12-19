@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["dieter.pisarewski@gmail.com"]
   spec.summary       = %q{Let rails spawn extra processes at startup.}
   spec.description   = %q{}
-  spec.homepage      = "http://megorei.com"
+  spec.homepage      = "https://github.com/megorei/spawno"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
